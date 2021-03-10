@@ -1,34 +1,66 @@
-.profile{
+.profile {
     border-radius: 50%;
     width: 40px;
     height: 40px;
     display: block;
     margin-top: 10px;
 }
-.greeting{
+
+.greeting {
     display: flex;
 }
-.profile-container{
+
+.profile-container {
     display: flex;
-    justify-content:flex-end;
+    justify-content: flex-end;
     flex-basis: 75%;
 }
-.nav-img{
+
+.nav-img {
     width: 50px;
     height: 50px;
     display: block;
     margin: auto;
 }
-.me-2{
+
+.me-2 {
     margin-right: 20px;
 }
-.top-nav-img{
+
+.top-nav-img {
     width: 16px;
     height: 20px;
     display: block;
     float: left;
 }
-.top-nav-button{
+
+.top-nav-button {
     margin-left: 10%;
-    border-radius:40%;
+    border-radius: 40%;
 }
+.row{
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .card {
+    /*float: left;*/
+    max-width: 33.333%;
+    padding: .75rem;
+    margin-bottom: 2rem;
+    border: 0;
+    flex-basis: 33.333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  
+  .card > img {
+    margin-bottom: .75rem;
+  }
+  
+  .card-text {
+    font-size: 85%;
+  }
