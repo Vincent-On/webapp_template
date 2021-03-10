@@ -22,3 +22,13 @@
 .me-2{
     margin-right: 20px;
 }
+.top-nav-img{
+    width: 16px;
+    height: 20px;
+    display: block;
+    float: left;
+}
+.top-nav-button{
+    margin-left: 10%;
+    border-radius:40%;
+}
