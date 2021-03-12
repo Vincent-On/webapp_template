@@ -64,16 +64,22 @@
   .card-text {
     font-size: 85%;
   }
-  .login-background {
-      background: linear-gradient(to bottom right, #7FFFD4, #AFEEEE, #40E0D0, cyan);
-      background-size: cover;
+  nav {
+      margin-top: 25px;
   }
-  #title-name {
-      text-align: center;
-      margin-top: 20%;
-      margin-bottom: 20%;
+  .favourites {
+      margin-top: 25px;
+      margin-bottom: 10%;
   }
-  .container > div {
-      /* margin-bottom: 2%; fullscreen webpage */
-      margin-bottom: 100%;
+  body {
+      background-color: whitesmoke;
   }
+  .top-short-nav {
+      margin-bottom: 25px;
+  }
+  .second-nav {
+    margin-top: 25px;
+}
+    .container > h1 {
+        background-color: white;
+    }
