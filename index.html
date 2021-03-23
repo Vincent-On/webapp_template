@@ -42,7 +42,7 @@
     </div>
   </nav>
   <div class="greeting">
-    <h1>Good morning, Sarah!</h1>
+    <h1>Good morning, <span id="username">Sarah</span></h1>
     <div class="profile-container"><img class="profile" src="https://i.mdel.net/i/db/2018/1/829928/829928-500w.jpg">
     </div>
   </div>
@@ -67,7 +67,7 @@
     <div class="row">
       <div class="card">
         <img src="./images/restaurant.jpg">
-        <a href="#restaurant" class="card-text">Restaurant</a>
+        <a href="main.html" class="card-text">Restaurant</a>
       </div>
       <div class="card">
         <img src="./images/retail.jpg">
@@ -158,13 +158,20 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
 
   <!--------------------------------------------------------------------->
   <!-- JS files: Your own JavaScript functions included here    -->
   <!--------------------------------------------------------------------->
+  <script src="scripts/blah.js"></script>
+
+
 
 </body>
-<nav class="navbar fixed-bottom navbar-light bg-light">
+<nav class="navbar fixed-bottom navbar-light bg-info">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">AVS</a>
   </div>
