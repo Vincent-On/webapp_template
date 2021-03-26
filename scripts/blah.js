@@ -1,21 +1,42 @@
 function writeCategories() {
     var categoriesRef = db.collection("Restaurant Categories");
-    
+
     categoriesRef.add({
         code: "FAST",
-        name: "Fast Food", 
+        name: "Fast Food",
     });
 
     categoriesRef.add({
         code: "SUSH",
-        name: "SUSHI", 
+        name: "SUSHI",
     });
 
     categoriesRef.add({
         code: "PIZZ",
-        name: "Pizza", 
+        name: "Pizza",
     });
 }
+
+
+function writeFastFood() {
+    var fastRef = db.collection("Fast food Categories");
+
+    fastRef.add({
+        code: "MC",
+        name: "Mcdonald",
+    });
+
+    fastRef.add({
+        code: "BK",
+        name: "Burgerking",
+    });
+
+    fastRef.add({
+        code: "PH",
+        name: "PizzaHut",
+    });
+}
+
 
 function sayHello() {
     firebase.auth().onAuthStateChanged(function (user) {
