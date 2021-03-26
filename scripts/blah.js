@@ -16,7 +16,7 @@ function sayHello(){
 }
 sayHello();
 
-<<<<<<< HEAD
+
 function writeCategories() {
     var categoriesRef = db.collection("categories");
     categoriesRef.add({
@@ -24,10 +24,10 @@ function writeCategories() {
 		Japanese: true,             //
         Asian: true,
         American: false,
-        BBQ: false
+        BBQ: false,
     });
 }
-=======
+
 function sayHello() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -50,4 +50,3 @@ function sayHello() {
     });
 }
 sayHello();
->>>>>>> e3057fa40a21be5223c64060df4ee467c1a1a5c8
