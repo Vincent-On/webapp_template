@@ -15,3 +15,14 @@ function sayHello(){
     })
 }
 sayHello();
+
+function writeCategories() {
+    var categoriesRef = db.collection("categories");
+    categoriesRef.add({
+        name: "Samurai Sushi",
+		Japanese: true,             //
+        Asian: true,
+        American: false,
+        BBQ: false
+    });
+}
