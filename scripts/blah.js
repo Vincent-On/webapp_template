@@ -16,6 +16,7 @@ function sayHello(){
 }
 sayHello();
 
+<<<<<<< HEAD
 function writeCategories() {
     var categoriesRef = db.collection("categories");
     categoriesRef.add({
@@ -26,3 +27,27 @@ function writeCategories() {
         BBQ: false
     });
 }
+=======
+function sayHello() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            // Do something for the user here. 
+            console.log(user.uid);
+            db.collection("users").doc(user.uid)
+                .get()
+                .then(function (doc) {
+                    var n = doc.data().name;
+                    console.log(n);
+                    //using jquery
+                    $("#username").text(n);
+                    //using vanilla javascript
+                    //document.getElementById("username").innerText = n;
+                })
+        } else {
+            // No user is signed in.
+        }
+    });
+}
+sayHello();
+>>>>>>> e3057fa40a21be5223c64060df4ee467c1a1a5c8
