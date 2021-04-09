@@ -125,6 +125,8 @@
         </div>
       </div>
     </div>
+
+
     <div class="favourites">
       <div class="container">
         <h1 class="display-4">Your Favourite Queues</h1>
@@ -153,8 +155,10 @@
       </div>
     </div>
 
+
     <div class="container">
-      <div id="webcam-go-here"> </div>
+      <h1>Testing</h1>
+      <div id='restaurant_goes_here'> </div>
     </div>
   </div>
 
@@ -179,19 +183,21 @@
   <script src="scripts/blah.js"></script>
 
   <script>
-    function displayWebcams() {
+    function displayRestaurants() {
       db.collection("Restaurants")
         //.where("fields.geo_local_area", "in", ["Downtown"])   //Amazing New Query "in"
         .get()
         .then(function (snap) { //get collection
           snap.forEach(function (doc) { //cycle thru them
-            var name = doc.data().fields.name; //get the name, create DOM with id
+            var RestaurantName = doc.data().name; //get the name, create DOM with id
+            console.log(RestaurantName)
             //$("#webcams-go-here").append("<h1 id='" + doc.id + "'> " + name + "</h1>");
-            $('#webcam-goes-here').append("<p id = ${doc.id}> ${name} </p>");
+            console.log(`testing ${RestaurantName}`)
+            $('#restaurant_goes_here').append(`<p> ${RestaurantName} </p>`);
           })
         })
     }
-    displayWebcams();
+    displayRestaurants();
   </script>
 
 </body>
