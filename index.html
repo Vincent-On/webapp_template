@@ -12,6 +12,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
   <!-- Optional styles and scripts of your own -->
   <link rel="stylesheet" href="styles/blah.css">
@@ -24,70 +27,44 @@
   <!-- The following is HTML for layout -->
   <!-------------------------------------->
   <!-- Header Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="">AVS</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">my data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profile.html">my profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.html">login/signup</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="greeting">
-    <h1>Good morning, <span id="username">Sarah</span></h1>
-    <div class="profile-container"><img class="profile" src="https://i.mdel.net/i/db/2018/1/829928/829928-500w.jpg">
-    </div>
-  </div>
-  <div class="top-short-nav">
-    <div class="container">
-      <div class="shortcuts">
-        <nav class="navbar bg-white">
-          <form class="container-fluid justify-content-start">
-            <button class="top-nav-button" type="button"><img class="top-nav-img" src="./images/pin-48.png"> Near
-              by</button>
-            <button class="top-nav-button" type="button"><img class="top-nav-img" src="./images/running.png">No
-              wait</button>
-            <button class="top-nav-button" type="button"><img class="top-nav-img" src="./images/green.png">Open
-              now</button>
-            <button class="top-nav-button" type="button"><img class="top-nav-img" src="./images/door2.png">24/7</button>
-          </form>
-        </nav>
+  <div class="center">
+    <div class="app-name">
+      <div class="container">
+        <h1 class="display-4">AVS's QUEUEFORWARD</h1>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="card">
-        <img src="./images/restaurant.jpg">
-        <a href="main.html" class="card-text">Restaurant</a>
+    <div class="favourites">
+      <div class="container">
+        <div class="greeting">
+          <h1>Good morning, <span id="username">Sarah</span></h1>
+          <div class="profile-container"><img class="profile"
+              src="https://i.mdel.net/i/db/2018/1/829928/829928-500w.jpg">
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <img src="./images/retail.jpg">
-        <a href="#retail" class="card-text">Retail</a>
+      <div class="container">
+        <div class="row">
+          <div class="card">
+            <img src="./images/restaurant.jpg">
+            <a href="main.html" class="card-text">Restaurant</a>
+          </div>
+          <div class="card">
+            <img src="./images/retail.jpg">
+            <a href="#retail" class="card-text">Retail</a>
+          </div>
+          <div class="card">
+            <img src="./images/bank.jpg">
+            <a href="#bank" class="card-text">Bank</a>
+          </div>
+          <div class="card">
+            <img src="./images/doctor.jpg">
+            <a href="#doctor" class="card-text">Doctor</a>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <img src="./images/bank.jpg">
-        <a href="#bank" class="card-text">Bank</a>
-      </div>
-      <div class="card">
-        <img src="./images/doctor.jpg">
-        <a href="#doctor" class="card-text">Doctor</a>
-      </div>
+    </div>
 
-    </div>
-  </div>
-  </div>
-  <div class="second-nav">
+    <!-- <div class="second-nav">
     <div class="container">
       <div class="shortcuts2">
         <nav class="navbar bg-white">
@@ -120,34 +97,63 @@
         </nav>
       </div>
     </div>
-  </div>
-  <div class="favourites">
-    <div class="container">
-      <h1 class="display-4">Your Favourite Queues</h1>
-      <div class="row">
-        <div class="card">
-          <img src="./images/babygap.jpg">
-          <a href="#baby-gap" class="card-text">Baby Gap</a>
-          <p>Baby &bullet; Clothing &bullet; $$</p>
+  </div> -->
+    <div class="favourites">
+      <div class="container">
+        <h1 class="display-4">Recently Visited Queues</h1>
+        <div class="row">
+          <div class="card">
+            <img src="./images/babygap.jpg">
+            <a href="#baby-gap" class="card-text">Baby Gap</a>
+            <p>Baby &bullet; Clothing &bullet; $$</p>
+          </div>
+          <div class="card">
+            <img src="./images/seoul.jpg">
+            <a href="#seoul-delights" class="card-text">Seoul Delights</a>
+            <p>Korean &bullet; Casual &bullet; $$</p>
+          </div>
+          <div class="card">
+            <img src="./images/sneakers.jpg">
+            <a href="#sneaker-heads" class="card-text">Sneaker Geeks</a>
+            <p>Street &bullet; Casual &bullet; $$</p>
+          </div>
+          <div class="card">
+            <img src="./images/books.jpg">
+            <a href="#chapters" class="card-text">Reading Jocks</a>
+            <p>Library &bullet; Quiet &bullet; $</p>
+          </div>
         </div>
-        <div class="card">
-          <img src="./images/seoul.jpg">
-          <a href="#seoul-delights" class="card-text">Seoul Delights</a>
-          <p>Korean &bullet; Casual &bullet; $$</p>
-        </div>
-        <div class="card">
-          <img src="./images/sneakers.jpg">
-          <a href="#sneaker-heads" class="card-text">Sneaker Geeks</a>
-          <p>Street &bullet; Casual &bullet; $$</p>
-        </div>
-        <div class="card">
-          <img src="./images/books.jpg">
-          <a href="#chapters" class="card-text">Reading Jocks</a>
-          <p>Library &bullet; Quiet &bullet; $</p>
+      </div>
+    </div>
+    <div class="favourites">
+      <div class="container">
+        <h1 class="display-4">Your Favourite Queues</h1>
+        <div class="row">
+          <div class="card">
+            <img src="./images/babygap.jpg">
+            <a href="#baby-gap" class="card-text">Baby Gap</a>
+            <p>Baby &bullet; Clothing &bullet; $$</p>
+          </div>
+          <div class="card">
+            <img src="./images/seoul.jpg">
+            <a href="#seoul-delights" class="card-text">Seoul Delights</a>
+            <p>Korean &bullet; Casual &bullet; $$</p>
+          </div>
+          <div class="card">
+            <img src="./images/sneakers.jpg">
+            <a href="#sneaker-heads" class="card-text">Sneaker Geeks</a>
+            <p>Street &bullet; Casual &bullet; $$</p>
+          </div>
+          <div class="card">
+            <img src="./images/books.jpg">
+            <a href="#chapters" class="card-text">Reading Jocks</a>
+            <p>Library &bullet; Quiet &bullet; $</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
   <!----------------------------------------------->
   <!-- JS: Boostrap, JQuery, Firebase, API related    -->
   <!----------------------------------------------->
@@ -172,10 +178,14 @@
 
 
 </body>
-<nav class="navbar fixed-bottom navbar-light bg-info">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">AVS</a>
+<div class="navbar">
+  <div class="container">
+    <div class="skeleton">
+      <a href="index.html"><i class="fa fa-home"></i></a>
+      <a href="qrcode.html"><i class="fa fa-qrcode"></i></a>
+      <a href="#business"><i class="fa fa-suitcase"></i></a>
+    </div>
   </div>
-</nav>
+</div>
 
 </html>

@@ -1,13 +1,14 @@
 .profile {
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     display: block;
     margin-top: 10px;
 }
 
 .greeting {
     display: flex;
+    margin-bottom: 3%;
 }
 
 .profile-container {
@@ -23,21 +24,6 @@
     margin: auto;
 }
 
-.me-2 {
-    margin-right: 20px;
-}
-
-.top-nav-img {
-    width: 16px;
-    height: 20px;
-    display: block;
-    float: left;
-}
-
-.top-nav-button {
-    margin-left: 10%;
-    border-radius: 40%;
-}
 .row{
     align-items: stretch;
     display: flex;
@@ -69,10 +55,10 @@
   }
   .favourites {
       margin-top: 25px;
-      margin-bottom: 10%;
+      margin-bottom: 5%;
   }
   body {
-      background-color: whitesmoke;
+      background-color: white;
   }
   .top-short-nav {
       margin-bottom: 25px;
@@ -80,21 +66,36 @@
   .second-nav {
     margin-top: 25px;
 }
-    .container > h1 {
-        background-color: white;
-    }
-    .map {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border-radius: 1%;
-        border-style: solid;
-        border-color: black;
-        border-width: 1px;
-        width: 100%;
-        height: auto;
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: lightblue;
+        width: 75%;
     }
     .restaurant-names {
         background-color: white;
         padding: 10px;
         margin-bottom: 20px;
     }
+.app-name {
+    background-color: turquoise;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar {
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; /* Position the navbar at the bottom of the page */
+    width: 100%; /* Full width */
+    padding: 10px 0 10px 0;
+}
+.skeleton {
+    background-color: turquoise;
+    color: white;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 4em;
+    padding-left: 40%;
+    padding-right: 40%;
+}
+
