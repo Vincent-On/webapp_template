@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>List</title>
-    <meta name="comp1800 boilerplate code" content="my bcit project">
-    <meta name="author" content="BCIT">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 
     <!-- Bootstrap, Firebase AuthUI -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,16 +25,34 @@
     <!-- Header Navigation Bar -->
     <div class="center">
         <div class="app-name">
-        <div class="container">
-            <h1 class="display-4">AVS's QUEUEFORWARD</h1>
-        </div>
-        </div>
-        <div class="container">
-            <h1 class="display-4">Restaurants</h1>
-            <div class="restaurant-card">
+            <div class="container">
+                <h1 class="display-4">AVS's QUEUEFORWARD</h1>
             </div>
         </div>
+        <div class="container">
+            <div class="search-bar">
+                <h1 class="display-4" id="header">Restaurants</h1>
+                <input class="input"></input>
+            </div>
+            <div class="display-list">
+                <div class="list-of-restaurants" id='restaurant_goes_here'></div>
+            </div>
+            <!-- <div>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+                <p class="empty">this is nothing dont look!</p>
+            </div> -->
+        </div>
     </div>
+
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, JQuery, Firebase, API related    -->
@@ -56,13 +73,37 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
     <script src="scripts/blah.js"></script>
+    <script>
+        let search = document.getElementsByTagName('input');
 
-
+    </script>
+    <script>
+        function displayRestaurants() {
+            db.collection("Restaurants")
+                // .orderby(search)   //
+                .get()
+                .then(function (snap) { //get collection
+                    snap.forEach(function (doc) { //cycle thru them
+                        var RestaurantName = doc.data().name; //get the name, create DOM with id
+                        console.log(RestaurantName)
+                        //$("#webcams-go-here").append("<h1 id='" + doc.id + "'> " + name + "</h1>");
+                        console.log(`testing ${RestaurantName}`)
+                        $('#restaurant_goes_here').append(`<p> ${RestaurantName} </p>`);
+                    })
+                })
+        }
+        displayRestaurants();
+    </script>
 </body>
-<nav class="navbar fixed-bottom navbar-light bg-info">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">AVS</a>
+<div class="container">
+    <div class="navbar">
+        <div class="skeleton">
+            <a href="index.html"><i class="fa fa-home"></i></a>
+            <a href="qrcode.html"><i class="fa fa-qrcode"></i></a>
+            <a href="#business"><i class="fa fa-suitcase"></i></a>
+        </div>
     </div>
-</nav>
+</div>
+
 
 </html>

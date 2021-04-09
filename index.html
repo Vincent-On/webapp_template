@@ -4,9 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>AVS</title>
-  <meta name="comp1800 boilerplate code" content="my bcit project">
-  <meta name="author" content="BCIT">
-
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
   <!-- Bootstrap, Firebase AuthUI -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,8 +35,8 @@
       <div class="container">
         <div class="greeting">
           <h1>Good morning, <span id="username">Sarah</span></h1>
-          <div class="profile-container"><img class="profile"
-              src="https://i.mdel.net/i/db/2018/1/829928/829928-500w.jpg">
+          <div class="profile-container"><a href="profile.html"><img class="profile"
+              src="https://i.mdel.net/i/db/2018/1/829928/829928-500w.jpg"></a>
           </div>
         </div>
       </div>
@@ -63,41 +61,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="second-nav">
-    <div class="container">
-      <div class="shortcuts2">
-        <nav class="navbar bg-white">
-          <form class="container-fluid justify-content-start">
-            <div class="me-2">
-              <img class="nav-img" src="https://www.freeiconspng.com/uploads/shoe-icon-16.jpg">
-              <button class="btn btn-outline-success" type="button">Shoes</button>
-            </div>
-            <div class="me-2">
-              <img class="nav-img"
-                src="https://cdn0.iconfinder.com/data/icons/japanese-food-8/64/japan_food_line-52-512.png">
-              <button class="btn btn-outline-success" type="button">Sushi</button>
-            </div>
-            <div class="me-2">
-              <img class="nav-img"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfNPDS1r_y4JFsW-F22rs_Ml_gD2vztneowg&usqp=CAU">
-              <button class="btn btn-outline-success" type="button">Grocery</button>
-            </div>
-            <div class="me-2">
-              <img class="nav-img"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiAE9CN7-3wEEnddYMzYpdjYEmaBD9SYN70Q&usqp=CAU">
-              <button class="btn btn-outline-success" type="button">Music</button>
-            </div>
-            <div class="me-2">
-              <img class="nav-img"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJhzXSR23W_Cb3B8dnR7xHAaud2jH5iOHL-A&usqp=CAU">
-              <button class="btn btn-outline-success" type="button">Coffee</button>
-            </div>
-          </form>
-        </nav>
-      </div>
-    </div>
-  </div> -->
     <div class="favourites">
       <div class="container">
         <h1 class="display-4">Recently Visited Queues</h1>
@@ -155,54 +118,29 @@
       </div>
     </div>
 
+    <!----------------------------------------------->
+    <!-- JS: Boostrap, JQuery, Firebase, API related    -->
+    <!----------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+      </script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
 
-    <div class="container">
-      <h1>Testing</h1>
-      <div id='restaurant_goes_here'> </div>
-    </div>
-  </div>
+    <!-- Link to the api keys for your firebase project -->
+    <script src="scripts/firebase_api_team3.js"></script>
 
-  <!----------------------------------------------->
-  <!-- JS: Boostrap, JQuery, Firebase, API related    -->
-  <!----------------------------------------------->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-  </script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-
-  <!-- Link to the api keys for your firebase project -->
-  <script src="scripts/firebase_api_team3.js"></script>
-
-  <!--------------------------------------------------------------------->
-  <!-- JS files: Your own JavaScript functions included here    -->
-  <!--------------------------------------------------------------------->
-  <script src="scripts/blah.js"></script>
-
-  <script>
-    function displayRestaurants() {
-      db.collection("Restaurants")
-        //.where("fields.geo_local_area", "in", ["Downtown"])   //Amazing New Query "in"
-        .get()
-        .then(function (snap) { //get collection
-          snap.forEach(function (doc) { //cycle thru them
-            var RestaurantName = doc.data().name; //get the name, create DOM with id
-            console.log(RestaurantName)
-            //$("#webcams-go-here").append("<h1 id='" + doc.id + "'> " + name + "</h1>");
-            console.log(`testing ${RestaurantName}`)
-            $('#restaurant_goes_here').append(`<p> ${RestaurantName} </p>`);
-          })
-        })
-    }
-    displayRestaurants();
-  </script>
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+    <script src="scripts/blah.js"></script>
 
 </body>
-<div class="navbar">
-  <div class="container">
+<div class="container">
+  <div class="navbar">
     <div class="skeleton">
       <a href="index.html"><i class="fa fa-home"></i></a>
       <a href="qrcode.html"><i class="fa fa-qrcode"></i></a>

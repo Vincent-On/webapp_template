@@ -48,9 +48,12 @@ function sayHello() {
                 .get()
                 .then(function (doc) {
                     var n = doc.data().name;
+                    var m = doc.data().email;
                     console.log(n);
+                    console.log(m);
                     //using jquery
                     $("#username").text(n);
+                    $("#email").text(m);
                     //using vanilla javascript
                     //document.getElementById("username").innerText = n;
                 })

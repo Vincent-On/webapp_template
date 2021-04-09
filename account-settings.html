@@ -27,17 +27,20 @@
     <div class="header">
         <a href="index.html" class="logo">AVS</a>
         <div class="header-right">
+            <a href="profile.html">Back</a>
             <a href="login.html">Log Out</a>
         </div>
     </div>
     <div class="container">
         <div class="profile-card">
-            <div class="card">
-                <img src="https://i.mdel.net/i/db/2018/1/829928/829928-500w.jpg">
-                <h1><span id="username"></span></h1>
-                <p class="title"><span id="email"></span></p>
-                <p><span id="number">xxx-xxx-xxxx</span></p>
-                <p><a href="account-settings.html"><button>Update</button></a></p>
+            <div class="account-card">
+                    <label for="fname">Name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="email" name="email"><br>
+                    <label for="pnumber">Phone Number:</label><br>
+                    <input type="text" id="pnumber" name="pnumber"><br><br>
+                    <button type="button" id="finish" class="btn btn-outline-success">Finish</button>
             </div>
         </div>
     </div>
@@ -61,6 +64,34 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
     <script src="scripts/blah.js"></script>
+    <script>
+        function getFormInputs() {
+            document.getElementById("finish").addEventListener('click', function () {
+                firebase.auth().onAuthStateChanged(function (user) {
+
+                    // get various values from the form
+                    var name = document.getElementById("fname").value;
+                    
+                    // Either true or false
+                    var email = document.getElementById("email").value;
+                    var number = document.getElementById("pnumber").value;
+
+                    console.log(name);
+                    console.log(email);
+                    console.log(number);
+
+                    db.collection("users")
+                        .doc(user.uid)
+                        .update({
+                            "name": name,
+                            "email": email,
+                            "phone number": number
+                        })
+                })
+            })
+        }
+        getFormInputs();
+    </script>
 
 </body>
 

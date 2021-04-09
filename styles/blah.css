@@ -85,7 +85,7 @@
 .navbar {
     position: fixed; /* Set the navbar to fixed position */
     bottom: 0; /* Position the navbar at the bottom of the page */
-    width: 100%; /* Full width */
+    width: 68%; /* Full width */
     padding: 10px 0 10px 0;
 }
 .skeleton {
@@ -98,4 +98,29 @@
     padding-left: 40%;
     padding-right: 40%;
 }
+.display-list {
+    text-align: center;
+    width: 50%;
+}
+.list-of-restaurants {
+    display: inline-block;
+    text-align: left;
+    font-size: 2em;
+}
+#header {
+    display: inline-block;
+    text-align: left;
+}
+body {
+    background-image: url('../images/queue.jpg');
 
+}
+.empty {
+    color: lightblue;
+}
+.input {
+    margin-top: 20px;
+    float: right;
+    width: 200px;
+
+}
