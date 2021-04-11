@@ -14,6 +14,8 @@
 
     <!-- Optional styles and scripts of your own -->
     <link rel="stylesheet" href="styles/blah.css">
+    <link rel="stylesheet" href="styles/details.css">
+
 
 </head>
 
@@ -54,11 +56,6 @@
             </div> -->
         </div>
     </div>
-
-    <div id="qrcode"></div>
-    <script type="text/javascript">
-        new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
-    </script>
 
 
     <!----------------------------------------------->
@@ -104,9 +101,9 @@
                     var url = doc.data().url;
                     var likeid = "like" + id;
                     $("#details-go-here").append("<h1> " + name + "</h1>");
-                    $("#details-go-here").append("<img src='" + image + "' > ");
+                    $("#details-go-here").append("<img src='" + image + "' id='image-id' > ");
                     $("#details-go-here").append("<a href='" + url + "' > " + url);
-                    $("#details-go-here").append(" <br>  <i id= '" + likeid + "' class='fas fa-thumbs-up'></i>");
+                    $("#details-go-here").append(" <br>  <i id= '" + likeid + "' class='fas fa-sign-in-alt'></i>");
                     addLikeListener(id, likeid);
                 })
         }
