@@ -126,7 +126,12 @@ body {
     margin-top: 20px;
     float: right;
     width: 200px;
-
+}
+.enter {
+    margin-top: 20px;
+    margin-left: 5px;
+    float: right;
+    width: 50px;
 }
 .centered {
     font-size: 2em;

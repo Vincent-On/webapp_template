@@ -32,7 +32,8 @@
         <div class="container">
             <div class="search-bar">
                 <h1 class="display-4" id="header">Restaurants</h1>
-                <input class="input"></input>
+                <button id="myBtn" class="enter">Enter</button>
+                <input id="search" class="input"></input>
             </div>
             <div class="display-list">
                 <div class="list-of-restaurants" id='restaurant_goes_here'></div>
@@ -73,14 +74,21 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
     <script src="scripts/blah.js"></script>
+    <!-- <script>
+        var input = document.getElementById("myInput");
+        input.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("myBtn").click();
+            }
+        });
+    </script> -->
     <script>
-        let search = document.getElementsByTagName('input');
-
-    </script>
-    <script>
+        let search = document.getElementById('search').value;
+        console.log(search);
         function displayRestaurants() {
             db.collection("Restaurants")
-                // .orderby(search)   //
+                .where("type", "array-contains", search)   //
                 .get()
                 .then(function (snap) { //get collection
                     snap.forEach(function (doc) { //cycle thru them
