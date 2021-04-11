@@ -34,9 +34,8 @@
         <div class="container">
             <div class="search-bar">
                 <h1 class="display-4" id="header">Restaurants</h1>
-                <input class="input"></input>
             </div>
-            <div class="display-list">
+            <div class="display-list" id="details-div">
                 <div class="list-of-restaurants" id='restaurant_goes_here'></div>
                 <div id="details-go-here"> </div>
                 <div id="likes-go-here"></div>
@@ -101,9 +100,9 @@
                     var url = doc.data().url;
                     var likeid = "like" + id;
                     $("#details-go-here").append("<h1> " + name + "</h1>");
-                    $("#details-go-here").append("<img src='" + image + "' id='image-id' > ");
-                    $("#details-go-here").append("<a href='" + url + "' > " + url);
-                    $("#details-go-here").append(" <br>  <i id= '" + likeid + "' class='fas fa-sign-in-alt'></i>");
+                    $("#details-go-here").append("<a href='" + url + "' > <img src='" + image + "' id='image-id' > </a>");
+                    //$("#details-go-here").append("<a href='" + url + "' > " + url);
+                    $("#likes-go-here").append(" <br>  <p> Join Queue <i id= '" + likeid + "' class='fas fa-sign-in-alt'></i> </p>");
                     addLikeListener(id, likeid);
                 })
         }
@@ -131,8 +130,33 @@
                 .then(function (doc) {
                     console.log(doc.data().name);
                     var likes = doc.data().likes;
-                    document.getElementById("likes-go-here").innerHTML="<h1>" + likes + "</h1>";
+                    document.getElementById("likes-go-here").innerHTML="<h1> You are in position " + likes + "</h1>";
                 })
+        }
+
+
+
+        function dropDown() {
+            $('#restaurant_goes_here').empty();
+            let selection = document.getElementById('restaurant-catagories').value;
+            console.log(selection);
+
+            function displayRestaurants() {
+                db.collection("Restaurants")
+                    .where("type", "array-contains", selection) //
+                    .get()
+                    .then(function (snap) { //get collection
+                        snap.forEach(function (doc) { //cycle thru them
+                            var RestaurantName = doc.data().name; //get the name, create DOM with id
+                            var id = doc.id;
+                            //$("#webcams-go-here").append("<h1 id='" + doc.id + "'> " + name + "</h1>");
+                            console.log(`testing ${RestaurantName}`)
+                            $('#restaurant_goes_here').append(`<p id= "${doc.id}"> ${RestaurantName} </p>`);
+                            addRestaurantlistener(id);
+                        })
+                    })
+            }
+            displayRestaurants();
         }
     </script>
 </body>

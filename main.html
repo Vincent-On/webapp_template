@@ -32,9 +32,16 @@
         <div class="container">
             <div class="search-bar">
                 <h1 class="display-4" id="header">Restaurants</h1>
-                <button id="myBtn" class="enter" onclick="search()">Enter</button>
-                <input id="search" class="input"></input>
+                <select name="catagories" id="restaurant-catagories" onchange="dropDown()">
+                    <option value="">--Please choose a catagory--</option>
+                    <option value="burger">Burgers</option>
+                    <option value="sushi">Sushi</option>
+                    <option value="pizza">Pizza</option>
+                </select>
+                <!--<button id="myBtn" class="enter" onclick="search()">Enter</button>
+                <input id="search" class="input"></input>-->
             </div>
+
             <div class="display-list">
                 <div class="list-of-restaurants" id='restaurant_goes_here'></div>
             </div>
@@ -61,7 +68,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
@@ -84,12 +91,13 @@
         });
     </script> -->
     <script>
-        function search(){
+        function search() {
             let search = document.getElementById('search').value;
             console.log(search);
+
             function displayRestaurants() {
                 db.collection("Restaurants")
-                    .where("type", "array-contains", search)   //
+                    .where("type", "array-contains", search) //
                     .get()
                     .then(function (snap) { //get collection
                         snap.forEach(function (doc) { //cycle thru them
@@ -104,6 +112,31 @@
             }
             displayRestaurants();
         }
+
+
+        function dropDown() {
+            $('#restaurant_goes_here').empty();
+            let selection = document.getElementById('restaurant-catagories').value;
+            console.log(selection);
+
+            function displayRestaurants() {
+                db.collection("Restaurants")
+                    .where("type", "array-contains", selection) //
+                    .get()
+                    .then(function (snap) { //get collection
+                        snap.forEach(function (doc) { //cycle thru them
+                            var RestaurantName = doc.data().name; //get the name, create DOM with id
+                            var id = doc.id;
+                            //$("#webcams-go-here").append("<h1 id='" + doc.id + "'> " + name + "</h1>");
+                            console.log(`testing ${RestaurantName}`)
+                            $('#restaurant_goes_here').append(`<p id= "${doc.id}"> ${RestaurantName} </p>`);
+                            addRestaurantlistener(id);
+                        })
+                    })
+            }
+            displayRestaurants();
+        }
+
 
         function addRestaurantlistener(id) {
             document.getElementById(id)
