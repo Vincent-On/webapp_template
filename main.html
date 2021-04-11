@@ -32,7 +32,7 @@
         <div class="container">
             <div class="search-bar">
                 <h1 class="display-4" id="header">Restaurants</h1>
-                <button id="myBtn" class="enter">Enter</button>
+                <button id="myBtn" class="enter" onclick="search()">Enter</button>
                 <input id="search" class="input"></input>
             </div>
             <div class="display-list">
@@ -84,23 +84,25 @@
         });
     </script> -->
     <script>
-        let search = document.getElementById('search').value;
-        console.log(search);
-        function displayRestaurants() {
-            db.collection("Restaurants")
-                .where("type", "array-contains", search)   //
-                .get()
-                .then(function (snap) { //get collection
-                    snap.forEach(function (doc) { //cycle thru them
-                        var RestaurantName = doc.data().name; //get the name, create DOM with id
-                        console.log(RestaurantName)
-                        //$("#webcams-go-here").append("<h1 id='" + doc.id + "'> " + name + "</h1>");
-                        console.log(`testing ${RestaurantName}`)
-                        $('#restaurant_goes_here').append(`<p> ${RestaurantName} </p>`);
+        function search(){
+            let search = document.getElementById('search').value;
+            console.log(search);
+            function displayRestaurants() {
+                db.collection("Restaurants")
+                    .where("type", "array-contains", search)   //
+                    .get()
+                    .then(function (snap) { //get collection
+                        snap.forEach(function (doc) { //cycle thru them
+                            var RestaurantName = doc.data().name; //get the name, create DOM with id
+                            console.log(RestaurantName)
+                            //$("#webcams-go-here").append("<h1 id='" + doc.id + "'> " + name + "</h1>");
+                            console.log(`testing ${RestaurantName}`)
+                            $('#restaurant_goes_here').append(`<p> ${RestaurantName} </p>`);
+                        })
                     })
-                })
+            }
+            displayRestaurants();
         }
-        displayRestaurants();
     </script>
 </body>
 <div class="container">
