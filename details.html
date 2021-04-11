@@ -37,6 +37,7 @@
             <div class="display-list">
                 <div class="list-of-restaurants" id='restaurant_goes_here'></div>
                 <div id="details-go-here"> </div>
+                <div id="likes-go-here"></div>
             </div>
             <!-- <div>
                 <p class="empty">this is nothing dont look!</p>
@@ -54,6 +55,11 @@
         </div>
     </div>
 
+    <div id="qrcode"></div>
+    <script type="text/javascript">
+        new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+    </script>
+
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, JQuery, Firebase, API related    -->
@@ -66,6 +72,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <script src="https://kit.fontawesome.com/26da0e4274.js" crossorigin="anonymous"></script>
 
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebase_api_team3.js"></script>
@@ -95,12 +102,41 @@
                     var name = doc.data().name;
                     var image = doc.data().image;
                     var url = doc.data().url;
+                    var likeid = "like" + id;
                     $("#details-go-here").append("<h1> " + name + "</h1>");
                     $("#details-go-here").append("<img src='" + image + "' > ");
                     $("#details-go-here").append("<a href='" + url + "' > " + url);
+                    $("#details-go-here").append(" <br>  <i id= '" + likeid + "' class='fas fa-thumbs-up'></i>");
+                    addLikeListener(id, likeid);
                 })
         }
         getDetails();
+
+        function addLikeListener(id, likeid) {
+            document.getElementById(likeid).addEventListener("click", function () {
+                console.log("like was clicked");
+                db.collection("Restaurants")
+                    .doc(id)
+                    .update({
+                        likes: firebase.firestore.FieldValue.increment(1) //increments the field!
+                    })
+                    .then(function () {
+                        console.log("incremented the like field")
+                        showLikes(id);
+                    })
+            })
+        }
+
+        function showLikes(itemid) {
+            db.collection("Restaurants")
+                .doc(itemid)
+                .get()
+                .then(function (doc) {
+                    console.log(doc.data().name);
+                    var likes = doc.data().likes;
+                    document.getElementById("likes-go-here").innerHTML="<h1>" + likes + "</h1>";
+                })
+        }
     </script>
 </body>
 <div class="container">
