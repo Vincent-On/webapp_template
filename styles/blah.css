@@ -90,7 +90,7 @@
     position: fixed; /* Set the navbar to fixed position */
     bottom: 0; /* Position the navbar at the bottom of the page */
     width: 68%; /* Full width */
-    padding: 10px 0 10px 0;
+    /* padding: 10px 0 10px 0; */
 }
 .skeleton {
     background-color: #f79d65;
@@ -98,7 +98,7 @@
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    font-size: 4em;
+    font-size: 2em;
     padding-left: 40%;
     padding-right: 40%;
 }

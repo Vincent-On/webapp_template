@@ -9,11 +9,14 @@ function sayHello() {
                 .then(function (doc) {
                     var n = doc.data().name;
                     var m = doc.data().email;
+                    var x = doc.data().phone_number;
                     console.log(n);
                     console.log(m);
+                    console.log(x);
                     //using jquery
                     $("#username").text(n);
                     $("#email").text(m);
+                    $("#number").text(x);
                     //using vanilla javascript
                     //document.getElementById("username").innerText = n;
                 })
